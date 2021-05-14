@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <conio.h>
 #include <Windows.h>
 using namespace std;
@@ -33,9 +33,9 @@ int main()
 
 void Menu(int h)
 {
-	cout << VERTICAL << HORIZONT << " ÏßÒÍÀØÊÈ" << endl << endl;
-	cout << HORIZONT << "íîâàÿ èãðà" << endl;
-	cout << HORIZONT << "   Âûõîä" << endl;
+	cout << VERTICAL << HORIZONT << " ÐŸÐ¯Ð¢ÐÐÐ¨ÐšÐ˜" << endl << endl;
+	cout << HORIZONT << "Ð½Ð¾Ð²Ð°Ñ Ð¸Ð³Ñ€Ð°" << endl;
+	cout << HORIZONT << "   Ð’Ñ‹Ñ…Ð¾Ð´" << endl;
 	DWORD l;
 	COORD point;
 	point.X = 48, point.Y = h;
@@ -213,7 +213,7 @@ void Move(int field[][4], int rows, int cols)
 void Win()
 {
 	setlocale(LC_ALL, "ru");
-	cout << HORIZONT << "  ÂÛ ÑÏÐÀÂÈËÈÑÜ!!!" << endl;
+	cout << HORIZONT << "  Ð’Ð« Ð¡ÐŸÐ ÐÐ’Ð˜Ð›Ð˜Ð¡Ð¬!!!" << endl;
 }
 void Lod()
 {
