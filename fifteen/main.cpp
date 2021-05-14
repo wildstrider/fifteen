@@ -40,15 +40,15 @@ void Menu(int h)
 	COORD point;
 	point.X = 48, point.Y = h;
 	HANDLE hout = GetStdHandle(STD_OUTPUT_HANDLE);
-	FillConsoleOutputAttribute(hout, 4, 10, point, &l);
+	FillConsoleOutputAttribute(hout, 4, 20, point, &l);
     char k = _getch();
 	if (k == 80 && h < 12) {
 		h++;
-		FillConsoleOutputAttribute(hout, 4, 10, point, &l);
+		FillConsoleOutputAttribute(hout, 4, 20, point, &l);
 	}
 		if (k == 72 && h > 11) {
 			h--;
-			FillConsoleOutputAttribute(hout, 4, 10, point, &l); 
+			FillConsoleOutputAttribute(hout, 4, 20, point, &l); 
 		}
 		system("cls");
 	if (k == 13 && point.Y == 11)return;
@@ -89,6 +89,8 @@ void PrintField(int field[][4], int rows, int cols)
 		             << char(196) << char(196) << char(196) << char(196) << char(217);
 	cout << endl;
 	cout << endl;
+	setlocale(LC_ALL, "ru");
+	cout << HORIZONT <<  "   Escape - выход" << endl;
 	check(field, rows, cols)? Win() : Move(field, rows, cols);
 }
 void Mix(int field[][4], int rows, int cols)
@@ -179,9 +181,9 @@ bool check(int field[][4], int rows, int cols)
 {
 	for (int i = 0; i < rows; i++) {
 
-		for (int j = 0; j < cols - 1; j++) {
+		for (int j = 0; j < cols; j++) {
 			if (field[i][j] > field[i][j + 1] )return false;
-			if (i == rows - 1 && field[i][cols - 2] == 15)break;
+			if (i == rows - 1 &&  field[i][cols - 2] == 15)break;
 		}
     }
 	return true;
@@ -203,7 +205,7 @@ void Move(int field[][4], int rows, int cols)
 		Up(field, rows, cols);
 		break;
 	case 27:
-		return;
+		exit(0);
 	default:
 		Move(field, rows, cols);
 	}
